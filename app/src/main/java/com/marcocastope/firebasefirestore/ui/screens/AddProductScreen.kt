@@ -68,7 +68,10 @@ fun AddProductScreen(onRegisterProduct: (Product) -> Unit) {
         }, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
 
         Button(onClick = {
-
+            val newPrice = price.toDouble()
+            val newStock = stock.toInt()
+            val product = Product(name = name, price = newPrice, stock = newStock)
+            onRegisterProduct(product)
         }, enabled = validateInputs(name, price, stock)) {
             Text(text = "Registrar")
         }
